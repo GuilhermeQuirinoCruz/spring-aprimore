@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de segurança</title>
+</head>
+
+<body>
+    <h2>Ohhhh</h2>
+    <!-- <div th:object="${usuario}">
+        <span th:text="*{nome}"></span>
+    </div> -->
+
+    <div th:switch="${usuarios}">
+        <h2 th:case="null">Não há usuários logados!</h2>
+        <div th:case="*">
+            <h2>Usuários Logados</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <!-- <th>ID</th> -->
+                        <th>Email</th>
+                        <th>Grupo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="usuario : ${usuarios}">
+                        <td th:text="${usuario.username}"></td>
+                        <td th:text="${usuario.grupo}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
